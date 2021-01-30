@@ -1,0 +1,86 @@
+$white: #fff !default;
+$gray-100: #f3f4f6 !default;
+$gray-200: #e5e7eb !default;
+$gray-300: #d1d5db !default;
+$gray-400: #9ca3af !default;
+$gray-500: #6b7280 !default;
+$gray-600: #4b5563 !default;
+$gray-700: #374151 !default;
+$gray-800: #1f2937 !default;
+$gray-900: #111827 !default;
+$black: #111827 !default;
+
+$blue: #3b82f6 !default;
+$indigo: #6366f1 !default;
+$purple: #8b5cf6 !default;
+$pink: #ec4899 !default;
+$red: #ef4444 !default;
+$orange: #f59e0b !default;
+$yellow: #fbbf24 !default;
+$green: #10b981 !default;
+$teal: #34d399 !default;
+$cyan: #60a5fa !default;
+
+.okr-progress {
+	height: 24px;
+	background: white;
+	border-radius: 5px 5px;
+	border: 1px solid #e5e7eb;
+	overflow: hidden;
+}
+
+.okr-progress-bar {
+	height: 24px;
+	&.progress-orange {
+		background: $orange;
+	}
+	&.progress-yellow {
+		background: $yellow;
+	}
+	&.progress-green {
+		background: $green;
+	}
+}
+
+article.okr-objective {
+	h1 {
+		font-size: 1.5rem;
+		margin-bottom: 0;
+	}
+}
+
+section.okr-result {
+	border-top: 1px solid $gray-200;
+	margin-bottom: 1rem;
+	padding-top: 1rem;
+	h1 {
+		font-size: 1.25rem;
+		margin-bottom: 0;
+	}
+}
+
+.okr-result-score {
+	border: solid 1px $gray-200;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50% 50%;
+	margin-left: 2rem;
+}
+
+.okr {
+	.flex-justify-center-align-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.flex-justify-between-align-center {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.margin-bottom-1 {
+		margin-bottom: 1rem;
+	}
+}
