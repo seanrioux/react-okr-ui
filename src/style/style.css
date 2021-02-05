@@ -1,0 +1,91 @@
+/* Objective */
+article.okr-objective h1 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0;
+	padding-right: 2rem;
+	margin-top: 0;
+}
+
+/* Result */
+section.okr-result {
+	border-bottom: 1px solid #e5e7eb;
+	padding-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+section.okr-result.h1 {
+	font-weight: bold;
+	font-size: 1.25rem;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+/* Progress */
+.okr-progress {
+	height: 24px;
+	border-radius: 5px 5px;
+	border: 1px solid #e5e7eb;
+	overflow: hidden;
+}
+
+.okr-progress-bar {
+	height: 24px;
+}
+
+.okr-progress-wrapper.full-width {
+	width: 100%;
+}
+
+.okr-progress-wrapper.grow {
+	flex-grow: 1;
+	padding-left: 2rem;
+}
+
+/* Utilities */
+.okr-value {
+	font-size: 90%;
+}
+
+.okr-value.okr-circle {
+	border: solid 1px #e5e7eb;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50% 50%;
+	font-weight: bold;
+	font-size: 80%;
+	color: white;
+}
+
+.okr-label {
+	font-weight: bold;
+}
+
+.okr-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.okr-ml-1 {
+	margin-left: 1rem;
+}
+
+.okr-mr-1 {
+	margin-right: 1rem;
+}
+
+.okr-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.okr-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
