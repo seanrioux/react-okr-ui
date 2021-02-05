@@ -1,4 +1,5 @@
 import React from "react";
+import typeOf from "prop-types";
 
 const Due = (props) => {
 	const classes = props.className ? `okr-due ${props.className}` : "okr-due";
@@ -16,6 +17,17 @@ const Due = (props) => {
 			<div className="okr-value">{due}</div>
 		</div>
 	);
+};
+
+Due.propTypes = {
+	label: typeOf.string,
+	date: typeOf.string,
+	options: typeOf.shape({
+		weekday: typeOf.string,
+		year: typeOf.string,
+		month: typeOf.string,
+		day: typeOf.string,
+	}),
 };
 
 export default Due;

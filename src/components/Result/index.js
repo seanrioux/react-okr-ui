@@ -1,4 +1,5 @@
 import React from "react";
+import typeOf from "prop-types";
 
 export const ResultContext = React.createContext();
 export const ResultProvider = ResultContext.Provider;
@@ -17,6 +18,8 @@ const Result = (props) => {
 	);
 };
 
-export default Result;
+Result.propTypes = {
+	className: typeOf.string,
+};
 
-// <input type="range" id="vol" name="vol" min="0" max="50" />
+export default Result;

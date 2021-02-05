@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import typeOf from "prop-types";
 
 import Format from "react-number-format";
 
@@ -7,14 +8,17 @@ import { GradesContext } from "../Okr";
 import calculateGrade from "../../services/calculateGrade";
 import calculateScore from "../../services/calculateScore";
 
-const Score = (props) => {
+const Score = ({
+	label,
+	direction,
+	start,
+	end,
+	current,
+	circle,
+	className,
+}) => {
 	// Calculate score
-	const score = calculateScore(
-		props.direction,
-		props.start,
-		props.end,
-		props.current
-	);
+	const score = calculateScore(direction, start, end, current);
 
 	// Convert score to percentage
 	const percentage = score * 100;
@@ -23,18 +27,16 @@ const Score = (props) => {
 	const grade = calculateGrade(grades, score);
 
 	// Set wrapper className
-	const wrapperClasses = props.className
-		? `okr-score  ${props.className}`
-		: "okr-score";
+	const wrapperClasses = className ? `okr-score  ${className}` : "okr-score";
 
 	// Set feature className, apply circle prop
-	const featureClasses = props.circle
+	const featureClasses = circle
 		? "okr-value okr-circle okr-center"
 		: "okr-value";
 
 	return (
 		<div className={wrapperClasses}>
-			{props.label ? <small className="okr-label">{props.label}</small> : null}
+			{label ? <small className="okr-label">{label}</small> : null}
 			<div
 				className={featureClasses}
 				style={{ borderColor: grade.color, background: grade.color }}
@@ -48,6 +50,16 @@ const Score = (props) => {
 			</div>
 		</div>
 	);
+};
+
+Score.propTypes = {
+	label: typeOf.string,
+	direction: typeOf.oneOf(["increase", "decrease", "maintain", "attain"]),
+	start: typeOf.number,
+	end: typeOf.number,
+	current: typeOf.number,
+	circle: typeOf.bool,
+	className: typeOf.string,
 };
 
 export default Score;

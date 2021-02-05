@@ -15,29 +15,34 @@ export const DirectionsProvider = DirectionsContext.Provider;
 export const GradesContext = React.createContext();
 export const GradesProvider = GradesContext.Provider;
 
-const Okr = (props) => {
+const Okr = ({ metrics, grades, children }) => {
 	return (
 		<div className="okr">
-			<ConfigProvider value={props.config}>
-				<MetricsProvider value={props.metrics}>
-					<DirectionsProvider value={props.directions}>
-						<GradesProvider value={props.grades}>
-							{props.children}
-						</GradesProvider>
-					</DirectionsProvider>
-				</MetricsProvider>
-			</ConfigProvider>
+			<MetricsProvider value={metrics}>
+				<GradesProvider value={grades}>{children}</GradesProvider>
+			</MetricsProvider>
 		</div>
 	);
 };
 
-Okr.typeOf = {
-	/**
-	 * Test
-	 */
+Okr.propTypes = {
 	metrics: typeOf.arrayOf(
 		typeOf.shape({
 			id: typeOf.string,
+			name: typeOf.string,
+			prefix: typeOf.string,
+			suffix: typeOf.string,
+			space: typeOf.bool,
+			allowNegative: typeOf.bool,
+			decimalScale: typeOf.number,
+		})
+	),
+	grades: typeOf.arrayOf(
+		typeOf.shape({
+			id: typeOf.string,
+			name: typeOf.string,
+			range: typeOf.arrayOf(typeOf.number),
+			color: typeOf.string,
 		})
 	),
 };
