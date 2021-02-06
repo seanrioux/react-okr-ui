@@ -1,0 +1,322 @@
+---
+title: Components
+route: /components
+---
+
+import Objective from "../components/Objective";
+import Progress from "../components/Progress";
+import Result from "../components/Result";
+import Current from "../components/Current";
+import Score from "../components/Score";
+import Goal from "../components/Goal";
+import Due from "../components/Due";
+import Okr from "../components/Okr";
+import Row from "../components/Row";
+
+import { Playground, Props } from "docz";
+import { dateOptions, metrics, results, grades } from "../data/example.js";
+
+# Components
+
+React OKR UI provides a collection of highly compositional components for a wide range of possible OKR UI requirements.
+
+Here's a live example. Adjust values in the Playground area to test how the components work and it's props work.
+
+<Playground>
+	{() => {
+		// Setup metrics
+		const metrics = [
+			{
+				id: "1",
+				name: "product revenue",
+				prefix: "",
+				suffix: "%",
+				space: false, // Fix
+				allowNegative: false,
+				decimalScale: 2,
+			},
+		];
+		// Set grades
+		const grades = [
+			{
+				id: "1",
+				name: "Fail",
+				range: [0.0, 0.75],
+				color: "#ef4444",
+			},
+			{
+				id: "2",
+				name: "Pass",
+				range: [0.75, 2.0],
+				color: "#10b981",
+			},
+		];
+		return (
+			<Okr metrics={metrics} grades={grades}>
+				<Objective>
+					<Row type="flex">
+						<Goal label="Objective" text="Carve out a niche" />
+						<Due
+							label="Due date"
+							date="2022/01/01"
+							options={{ year: "numeric", month: "short", day: "numeric" }}
+						/>
+					</Row>
+					<Progress label="progress" value={0.75} />
+					<Result>
+						<Row type="flex">
+							<Goal
+								label="Key Result"
+								direction="increase"
+								metricId="1"
+								start={20}
+								end={50}
+							/>
+							<Row type="flex">
+								<Current
+									className="okr-mr-1"
+									label="Current"
+									metricId="1"
+									value={30}
+								/>
+								<Score
+									className="okr-ml-1"
+									direction="increase"
+									start={20}
+									end={50}
+									current={30}
+									circle
+								/>
+							</Row>
+						</Row>
+					</Result>
+				</Objective>
+			</Okr>
+		);
+	}}
+</Playground>
+
+---
+
+## Okr
+
+The `<Okr>` component acts as a general countainer wrapper:
+
+```jsx
+<Okr metrics={metrics} grades={grades}>
+	{children}
+</Okr>
+```
+
+### Properties
+
+Okr has the properties:
+
+- `metrics`: i.e., the things you are measuring as results
+- `grades`: i.e., how scores are interpreted e.g., `pass` or `fail`
+
+<Props of={Okr} />
+
+#### Example metrics and grades
+
+Here is some example configuration:
+
+```js
+// Metrics
+const metrics = [
+	{
+		id: "1",
+		name: "product revenue",
+		prefix: "",
+		suffix: "%",
+		space: false, // Fix
+		allowNegative: false,
+		decimalScale: 2,
+	},
+];
+
+// Grades
+const grades = [
+	{
+		id: "1",
+		name: "Fail",
+		range: [0.0, 0.75],
+		color: "#ef4444",
+	},
+	{
+		id: "2",
+		name: "Pass",
+		range: [0.75, 2.0],
+		color: "#10b981",
+	},
+];
+```
+
+---
+
+## Objective
+
+The `<Objective>` component provides a wrapper for each objective:
+
+```jsx
+<Objective className="card">{children}</Objective>
+```
+
+### Properties
+
+The component takes a className and passes it on to the component:
+
+<Props of={Objective} />
+
+---
+
+## Result
+
+The `<Result>` component provides a wrapper for each result:
+
+```jsx
+<Result className="card">{children}</Result>
+```
+
+### Properties
+
+The component takes a className and passes it on to the component.
+
+<Props of={Result} />
+
+---
+
+## Goal
+
+The `<Goal>` component displays the goal text, either by processing the result object properties or simply taking objective text.
+
+<Playground>
+	<Okr metrics={metrics} grades={grades}>
+		<Objective>
+			<Goal label="Objective" text="Carve out a niche" />
+			<Result>
+				<Goal
+					label="Key Result"
+					direction="increase"
+					metricId="1"
+					start={20}
+					end={50}
+				/>
+			</Result>
+		</Objective>
+	</Okr>
+</Playground>
+
+### Properties
+
+The component takes objective properties to calculate the goal or simply text. It also includes an optional label:
+
+<Props of={Goal} />
+
+## Due
+
+Input any parsable date string (or timestamp) to display the date. Customize using options:
+
+<Playground>
+	<Due
+		label="Due date"
+		date="2022/01/01"
+		options={{ year: "numeric", month: "short", day: "numeric" }}
+	/>
+</Playground>
+
+## Progress
+
+Progress indicator for objectives, calculated from result scores or input as a percentage value.
+
+<Playground>
+	<Okr metrics={metrics} grades={grades}>
+		<Objective>
+			<Progress label="progress" value={0.75} />
+			<Progress label="progress" results={results} />
+		</Objective>
+	</Okr>
+</Playground>
+
+### Properties
+
+Takes either a percentage value, or an array of results.
+
+<Props of={Progress} />
+
+### Results example
+
+Here is how to structure your results in an array:
+
+```js
+	const results = [
+		id: "1",
+		metricId: "1",
+		direction: "increase",
+		start: 50,
+		end: 10,
+		current: 20,
+	},
+]
+```
+
+## Current
+
+Display the current result value.
+
+<Playground>
+	<Okr metrics={metrics} grades={grades}>
+		<Objective>
+			<Result>
+				<Current label="Current" metricId="1" value={30} />
+			</Result>
+		</Objective>
+	</Okr>
+</Playground>
+
+### Properties
+
+Takes the current value from the result and the metricId to format the number.
+
+<Props of={Current} />
+
+## Score
+
+Score the result based on start, end (goal), and current value.
+
+<Playground>
+	<Okr metrics={metrics} grades={grades}>
+		<Objective>
+			<Result>
+				<Score
+					label="score"
+					direction="increase"
+					start={20}
+					end={50}
+					current={30}
+					circle
+				/>
+			</Result>
+		</Objective>
+	</Okr>
+</Playground>
+
+### Properties
+
+Takes result properties, as well as a `label`, and `className`. Can display as a `circle` which uses the score grade to determine its background color.
+
+<Props of={Score} />
+
+## Row
+
+A flex row utility component (very optional).
+
+```jsx
+<Row type="flex">{children}</Row>
+```
+
+### Properties
+
+Use to layout your row using `flex` or `wrap`.
+
+<Props of={Row} />

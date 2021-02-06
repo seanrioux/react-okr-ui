@@ -1,0 +1,45 @@
+---
+title: Contribution
+route: /contribution
+---
+
+# Contribution guide
+
+## Git
+
+Contributors should work from the latest version branch in development (indicated using format `v0.1.0`).
+
+Pull requests will be reviewed for contribution to future releases.
+
+## Development
+
+The easiest way to get started is via the included Docz site. Docz is a React based static site generator for documentation. It uses mdx.
+
+Using Docz we have components in a living style guide. To run Docz locally for development:
+
+```
+npm install
+npm run docz:dev
+```
+
+To run a build of the Docz site:
+
+```
+npm run docz:build
+```
+
+To build and serve a Docz site:
+
+```
+npm run docz:serve
+```
+
+## Build
+
+Builds for distribution are via Webpack. To test your builds, you can:
+
+```
+npm run build
+```
+
+Builds are distributed via npm.
