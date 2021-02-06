@@ -1,0 +1,136 @@
+---
+title: Home
+route: /
+---
+
+import Objective from "../components/Objective";
+import Progress from "../components/Progress";
+import Result from "../components/Result";
+import Current from "../components/Current";
+import Score from "../components/Score";
+import Goal from "../components/Goal";
+import Due from "../components/Due";
+import Okr from "../components/Okr";
+import Row from "../components/Row";
+
+import { Playground, Props } from "docz";
+import { dateOptions, metrics, results, grades } from "../data/example.js";
+
+# React OKR UI
+
+An open source user interface for building OKR centric applications with React.
+
+---
+
+## Example
+
+<Okr metrics={metrics} grades={grades}>
+	<Objective>
+		<Row type="flex">
+			<Goal label="Objective" text="Carve out a niche" />
+			<Due
+				label="Due date"
+				date="2022/01/01"
+				options={{ year: "numeric", month: "short", day: "numeric" }}
+			/>
+		</Row>
+		<Progress label="progress" value={0.75} />
+		<Result>
+			<Row type="flex">
+				<Goal
+					label="Key Result"
+					direction="decrease"
+					metricId="1"
+					start={20}
+					end={50}
+				/>
+				<Row type="flex">
+					<Current
+						className="okr-mr-1"
+						label="Current"
+						metricId="1"
+						value={30}
+					/>
+					<Score
+						className="okr-ml-1"
+						direction="decrease"
+						start={20}
+						end={50}
+						current={30}
+						circle
+					/>
+				</Row>
+			</Row>
+		</Result>
+		<Result>
+			<Row type="flex">
+				<Goal
+					label="Key Result"
+					direction="increase"
+					metricId="2"
+					start={110}
+					end={190}
+				/>
+				<Row type="flex">
+					<Current
+						className="okr-mr-1"
+						label="Current"
+						metricId="2"
+						current={175}
+					/>
+					<Score
+						className="okr-ml-1"
+						direction="increase"
+						start={110}
+						end={190}
+						current={175}
+						circle
+					/>
+				</Row>
+			</Row>
+		</Result>
+		<Result>
+			<Row type="flex">
+				<Goal
+					label="Key Result"
+					direction="attain"
+					metricId="3"
+					start={1000}
+					end={10000}
+				/>
+				<Row type="flex">
+					<Current
+						className="okr-mr-1"
+						label="Current"
+						metricId="3"
+						value={30}
+					/>
+					<Score
+						className="okr-ml-1"
+						direction="attain"
+						start={1000}
+						end={10000}
+						current={7000}
+						circle
+					/>
+				</Row>
+			</Row>
+		</Result>
+	</Objective>
+</Okr>
+
+## Gettin Started
+
+Getting started is easy. Simply install the package via npm:
+
+```
+npm install react-okr-ui
+```
+
+Once installed, import the components you need into your React app:
+
+```js
+import { Okr, Objective, Result, Goal } from "react-okr-ui";
+```
+
+To view all the component in action, check out the playground [here]("/components#example").

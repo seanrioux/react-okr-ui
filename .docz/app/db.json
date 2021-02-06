@@ -13,33 +13,23 @@
   },
   "entries": [
     {
-      "key": "home.mdx",
+      "key": "src/docs/about.mdx",
       "value": {
-        "title": "Home",
-        "route": "/",
-        "id": "e9760a3ba4a9c7b296119b45537b0977",
-        "filepath": "home.mdx",
-        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/home.mdx",
+        "title": "about",
+        "route": "/about",
+        "id": "96b11fc39a7f37472f1616ba0862866a",
+        "filepath": "src/docs/about.mdx",
+        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/src/docs/about.mdx",
         "link": "",
         "hidden": false,
-        "slug": "home",
-        "name": "Home",
+        "slug": "src-docs-about",
+        "name": "About",
         "menu": "",
         "headings": [
           {
-            "slug": "okr-ui",
+            "slug": "about",
             "depth": 1,
-            "value": "OKR UI"
-          },
-          {
-            "slug": "example",
-            "depth": 2,
-            "value": "Example"
-          },
-          {
-            "slug": "gettin-started",
-            "depth": 2,
-            "value": "Gettin Started"
+            "value": "About"
           },
           {
             "slug": "features",
@@ -70,16 +60,16 @@
       }
     },
     {
-      "key": "src/components/components.mdx",
+      "key": "src/docs/components.mdx",
       "value": {
         "title": "Components",
         "route": "/components",
-        "id": "a07a898edf1dff0a1b561ef27acc2ddc",
-        "filepath": "src/components/components.mdx",
-        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/src/components/components.mdx",
+        "id": "876604fb19e9e6dd3535044ab89e28dc",
+        "filepath": "src/docs/components.mdx",
+        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/src/docs/components.mdx",
         "link": "",
         "hidden": false,
-        "slug": "src-components-components",
+        "slug": "src-docs-components",
         "name": "Components",
         "menu": "",
         "headings": [
@@ -185,9 +175,119 @@
           }
         ]
       }
+    },
+    {
+      "key": "src/docs/contribution.mdx",
+      "value": {
+        "title": "Contribution",
+        "route": "/contribution",
+        "id": "9900ee88efc5ce51b5f973385fc20ba2",
+        "filepath": "src/docs/contribution.mdx",
+        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/src/docs/contribution.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-docs-contribution",
+        "name": "Contribution",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "contribution-guide",
+            "depth": 1,
+            "value": "Contribution guide"
+          },
+          {
+            "slug": "git",
+            "depth": 2,
+            "value": "Git"
+          },
+          {
+            "slug": "development",
+            "depth": 2,
+            "value": "Development"
+          },
+          {
+            "slug": "build",
+            "depth": 2,
+            "value": "Build"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/docs/home.mdx",
+      "value": {
+        "title": "Home",
+        "route": "/",
+        "id": "e955be39a544e8cd7f90ce3094314f68",
+        "filepath": "src/docs/home.mdx",
+        "fullpath": "/Users/seanrioux/products/open-source-okr/code/react-okr-ui/src/docs/home.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-docs-home",
+        "name": "Home",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "react-okr-ui",
+            "depth": 1,
+            "value": "React OKR UI"
+          },
+          {
+            "slug": "example",
+            "depth": 2,
+            "value": "Example"
+          },
+          {
+            "slug": "gettin-started",
+            "depth": 2,
+            "value": "Gettin Started"
+          }
+        ]
+      }
     }
   ],
   "props": [
+    {
+      "key": "src/components/Current/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Current",
+          "methods": [],
+          "actualName": "Current",
+          "props": {
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "value": {
+              "type": {
+                "name": "number"
+              },
+              "required": false,
+              "description": ""
+            },
+            "metricId": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "className": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
     {
       "key": "src/components/Due/index.js",
       "value": [
@@ -429,56 +529,6 @@
       ]
     },
     {
-      "key": "src/components/Result/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Result",
-          "methods": [],
-          "actualName": "Result",
-          "props": {
-            "className": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/components/Row/index.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Row",
-          "methods": [],
-          "actualName": "Row",
-          "props": {
-            "type": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "\"wrap\"",
-                    "computed": false
-                  },
-                  {
-                    "value": "\"flex\"",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "Set row type of `wrap`, or `flex` (justify content between)"
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/components/Progress/index.js",
       "value": [
         {
@@ -549,38 +599,47 @@
       ]
     },
     {
-      "key": "src/components/Current/index.js",
+      "key": "src/components/Result/index.js",
       "value": [
         {
           "description": "",
-          "displayName": "Current",
+          "displayName": "Result",
           "methods": [],
-          "actualName": "Current",
+          "actualName": "Result",
           "props": {
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "value": {
-              "type": {
-                "name": "number"
-              },
-              "required": false,
-              "description": ""
-            },
-            "metricId": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
             "className": {
               "type": {
                 "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Row/index.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Row",
+          "methods": [],
+          "actualName": "Row",
+          "props": {
+            "kind": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"wrap\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"flex\"",
+                    "computed": false
+                  }
+                ]
               },
               "required": false,
               "description": ""

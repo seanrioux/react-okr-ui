@@ -6,6 +6,13 @@
 /build
 .pnp.js
 
+.docz/.cache
+.docz/public
+.docz/app
+.docs/src/pages
+gatsby-config.js
+
+
 # testing
 /coverage
 

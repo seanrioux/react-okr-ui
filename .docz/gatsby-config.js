@@ -64,7 +64,7 @@ const config = {
         description:
           'A React user interface toolkit for building OKR centric applications.',
         host: 'localhost',
-        port: 3000,
+        port: 3002,
         p: 3000,
         separator: '-',
         paths: {
